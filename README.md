@@ -5,7 +5,7 @@
 ## TABLE OF CONTENT 
 
 1. [**Introduction to HTTP**](#introduction-to-http)<!-- style="font-size:20px" -->
-2. **HTTP Parameters**<!-- style="font-size:20px" -->
+2. [**HTTP Parameters**](#http-parameters)<!-- style="font-size:20px" -->
 3. **HTTP Messages**<!-- style="font-size:20px" -->
 4. **HTTP Requests**<!-- style="font-size:20px" -->
 5. **HTTP Responses**<!-- style="font-size:20px" -->
@@ -77,5 +77,148 @@ The HTTP server responds with a status line, including the message's protocol ve
 3. **Server Availability** : Even if HTTP receives all the data that it needs, clients does not take measures to close the connection. Therefore, during this time period, server will not be present. 
 
 4. **Administrative Overhead** : For transmitting a web page, a HTTP needs to create multiple connections. This causes administrative overhead in the connection. 
- 
+
 5. **IoT Device Support** : HTTP uses more number of system resources which leads to more power consumption. Since IoT device today contain wireless sensor networks, it is not suitable to use HTTP. 
+
+## HTTP Parameters
+
+In this section, we will discuss various HTTP parameters and their syntax. For example, date and time format, character set, etc. These parameters are used in the construction of our request and response message while writing the HTTP program of the client or server.
+
+The various parameters of HTTP are as follows:
+
+* [**HTTP Version**](#http-version)
+* [**Uniform Resource Identifiers**](#uniform-resource-identifiers)
+* [**Date/Time Formats**](#date-or-time-formats)
+* [**Character Sets**](#character-sets)
+* [**Content Encodings**](#content-encodings)
+* [**Media Types**](#media-types)
+* [**Language Tags**](#language-tags)
+
+### HTTP Version
+
+HTTP uses a **<major>**.**<minor>** numbering scheme to indicate versions of the protocol. The version of an HTTP message is indicated by an HTTP-Version field in the first line.
+
+Syntax:
+
+```markdown
+HTTP-Version   = "HTTP" "/" 1*DIGIT "." 1*DIGIT
+```
+
+Example:
+
+```markdown
+HTTP/1.0
+
+or
+
+HTTP/1.1
+```
+
+### Uniform Resource Identifiers
+
+Uniform Resource Identifiers (URI) are simply formatted, case-insensitive string containing name, location, etc. to identify a resource, for example, a website, a web service, etc.
+
+Syntax:
+
+```markdown
+URI = "http:" "//" host [ ":" port ] [ abs_path [ "?" query ]]
+```
+
+* "http" scheme is used to locate network resources through the HTTP protocol.
+* Here if the port is empty or not given, port 80 is assumed for HTTP and an empty abs path is equivalent to an abs_path of "/". The characters other than those in the reserved and unsafe sets are equivalent to their ""%" HEX HEX" encoding.
+
+Example:
+
+```markdown
+http://abc.com:80/~smith/home.html
+http://ABC.com/%7Esmith/home.html
+http://ABC.com:/%7esmith/home.html
+```
+
+### Date or Time Formats
+
+* All HTTP date/time stamps MUST be represented in Greenwich Mean Time (GMT), without exception.
+* HTTP applications are allowed to use any of the following three representations of date/time stamps:
+
+```markdown
+Sun, 06 Nov 1994 08:49:37 GMT  ; RFC 822, updated by RFC 1123
+Sunday, 06-Nov-94 08:49:37 GMT ; RFC 850, obsoleted by RFC 1036
+Sun Nov  6 08:49:37 1994       ; ANSI C's asctime() format
+```
+
+### Character Sets
+
+We use character sets to specify the character sets that the client prefers. Multiple character sets can be listed separated by commas. If a value is not specified, the default is the US-ASCII
+
+Example:
+
+Following are the valid character sets:
+
+```markdown
+US-ASCII
+
+or
+
+ISO-8859-1
+
+or 
+
+ISO-8859-7
+```
+
+### Content Encodings
+
+A content encoding value indicates that an encoding algorithm has been used to encode the content before passing it over the network. Content coding are primarily used to allow a document to be compressed or otherwise usefully transformed without losing the identity.
+
+All content-coding values are case-insensitive. HTTP/1.1 uses content-coding values in the Accept-Encoding and Content-Encoding header fields which we will see in the subsequent chapters.
+
+Example:
+
+Following are the valid encoding schemes
+
+```markdown
+Accept-encoding: gzip
+
+or
+
+Accept-encoding: compress
+
+or 
+
+Accept-encoding: deflate
+```
+
+### Media Types
+
+HTTP uses Internet Media Types in the Content-Type and Accept header fields in order to provide open and extensible data typing and type negotiation. All the Media-type values are registered with the Internet Assigned Number Authority (IANA).
+
+The general syntax to specify media type is as follows:
+
+```markdown
+media-type     = type "/" subtype *( ";" parameter )
+```
+
+The type, subtype, and parameter attribute names are case--insensitive.
+
+Example:
+
+```markdown
+Accept: image/gif
+```
+
+### Language Tags
+
+HTTP uses language tags within the Accept-Language and Content-Language fields. A language tag is composed of one or more parts: a primary language tag and a possibly empty series of subtags:
+
+```markdown
+language-tag  = primary-tag *( "-" subtag )
+```
+
+White spaces are not allowed within the tag and all tags are case- insensitive.
+
+Example:
+
+```markdown
+en, en-US, en-cockney, i-cherokee, x-pig-latin
+```
+
