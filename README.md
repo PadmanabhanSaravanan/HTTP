@@ -541,16 +541,16 @@ Content-Type: text/html; charset=iso-8859-1
 
 For HTTP/1.1, the set of common methods are defined below. This set can be expanded based on the requirements. The name of these methods is case sensitive, and they must be used in uppercase.
 
-| **_Method _** | **_Description _**                                                                                                                                                                |
-|---------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [**GET**](#get-method)       | The GET method is used to retrieve information from the given server using a given URI. Requests using GET should only retrieve data and should have no other effect on the data. |
-| [**HEAD**](#head-method)      | Same as GET, but it transfers the status line and the header section only.                                                                                                        |
-| [**POST**](#post-method)      | A POST request is used to send data to the server, for example, customer information, file upload, etc. using HTML forms.                                                         |
-| [**PUT**](#put-method)       | Replaces all the current representations of the target resource with the uploaded content.                                                                                        |
-| [**DELETE**](#delete-method)    | Removes all the current representations of the target resource given by URI.                                                                                                      |
+| **_Method_**                     | **_Description_**                                                                                                                                                                 |
+|----------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| [**GET**](#get-method)           | The GET method is used to retrieve information from the given server using a given URI. Requests using GET should only retrieve data and should have no other effect on the data. |
+| [**HEAD**](#head-method)         | Same as GET, but it transfers the status line and the header section only.                                                                                                        |
+| [**POST**](#post-method)         | A POST request is used to send data to the server, for example, customer information, file upload, etc. using HTML forms.                                                         |
+| [**PUT**](#put-method)           | Replaces all the current representations of the target resource with the uploaded content.                                                                                        |
+| [**DELETE**](#delete-method)     | Removes all the current representations of the target resource given by URI.                                                                                                      |
 | [**CONNECT**](#connect-method)   | Establishes a tunnel to the server identified by a given URI.                                                                                                                     |
 | [**OPTIONS**](#options-method)   | Describe the communication options for the target resource.                                                                                                                       |
-| [**TRACE**](#trace-method)     | Performs a message loop back test along with the path to the target resource.                                                                                                     |
+| [**TRACE**](#trace-method)       | Performs a message loop back test along with the path to the target resource.                                                                                                     |
 
 ### **GET Method**
 
