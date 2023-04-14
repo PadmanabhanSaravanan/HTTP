@@ -8,15 +8,15 @@
 2. [**HTTP Parameters**](#http-parameters)<!-- style="font-size:20px" -->
 3. [**Working of web**](#working-of-web)<!-- style="font-size:20px" -->
 4. [**HTTP Messages**](#http-messages)<!-- style="font-size:20px" -->
-5. **HTTP Requests**<!-- style="font-size:20px" -->
-6. **HTTP Responses**<!-- style="font-size:20px" -->
-7. **HTTP Methods**<!-- style="font-size:20px" -->
-8. **HTTP Status Codes**<!-- style="font-size:20px" -->
-9. **HTTP Header Fields**<!-- style="font-size:20px" -->
-10. **HTTP Cookies**<!-- style="font-size:20px" -->
-11. **HTTP Chaching**<!-- style="font-size:20px" -->
-12. **HTTP URL Encoding**<!-- style="font-size:20px" -->
-13. **HTTP Security**<!-- style="font-size:20px" -->
+5. [**HTTP Requests**](#http-request)<!-- style="font-size:20px" -->
+6. [**HTTP Responses**](#)<!-- style="font-size:20px" -->
+7. [**HTTP Methods**](#)<!-- style="font-size:20px" -->
+8. [**HTTP Status Codes**](#)<!-- style="font-size:20px" -->
+9. [**HTTP Header Fields**](#)<!-- style="font-size:20px" -->
+10. [**HTTP Cookies**](#)<!-- style="font-size:20px" -->
+11. [**HTTP Chaching**](#)<!-- style="font-size:20px" -->
+12. [**HTTP URL Encoding**](#)<!-- style="font-size:20px" -->
+13. [**HTTP Security**](#)<!-- style="font-size:20px" -->
 
 
 ## Introduction to HTTP
@@ -315,7 +315,7 @@ The transfer-length of a message is the length of the message-body, and it appea
 
 In a message, when a message body is allowed, and Content-Length is given, its field value MUST exactly match the number of OCTETs in the message-body. When an invalid length is received and detected, the HTTP/1.1 user agents MUST notify the user.
 
-### ***General Header Fields***
+### **General Header Fields**
 
 Some header fields have the applicability for both the request and response messages. These header fields apply only when the message is transmitted.
 
@@ -324,3 +324,110 @@ Syntax
 ```markdown
 general-header = Cache-Control 
 ``` 
+
+## HTTP Request
+
+An HTTP client sends an HTTP request to a server in the form of a request message which includes following format:
+
+> * A Request Line
+> * Zero or more header(General,Request,Entity) fields followed by CRLF
+> * An empty line (i.e., a line with nothing preceding the CRLF) indicating the end of the header fields
+> * Optionally a message-body
+
+**Syntax**
+
+```markdown
+Request  = Request-Line                
+        *(( general-header        
+        | request-header           
+        | entity-header ) CRLF)    
+        CRLF  
+        [ message-body ] 
+``` 
+
+* [**Request Line**](#request-line)
+* [**Request Method**](#request-method)
+* [**Request-URI**](#request-uri)
+* [**Request Header Fields**](#request-header-fields)
+* [**Examples**](#examples)
+
+### **Request Line**
+
+The Request-Line starts with a method token, which is followed by the Request-URI, the protocol version, and ending with CRLF. Using the SP characters, the elements are separated.
+
+**Syntax**
+
+```markdown
+Request-Line   = Method SP Request-URI SP HTTP-Version CRLF 
+``` 
+
+### **Request Method**
+
+The request method indicates the method to be performed on the resource identified by the given Request-URI. The method is case-sensitive and should always be mentioned in uppercase. The following table lists all the supported methods in HTTP/1.1.
+
+| **_Sl No_** | **_Method_** | **_Description_**                                                                                                                                                                 |
+|-------------|--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| 1           | GET          | The GET method is used to retrieve information from the given server using a given URI. Requests using GET should only retrieve data and should have no other effect on the data. |
+| 2           | HEAD         | Same as GET, but it transfers the status line and the header section only.                                                                                                        |
+| 3           | POST         | A POST request is used to send data to the server, for example, customer information, file upload, etc. using HTML forms.                                                         |
+| 4           | PUT          | Replaces all the current representations of the target resource with the uploaded content.                                                                                        |
+| 5           | DELETE       | Removes all the current representations of the target resource given by URI.                                                                                                      |
+| 6           | CONNECT      | Establishes a tunnel to the server identified by a given URI.                                                                                                                     |
+| 7           | OPTIONS      | Describe the communication options for the target resource.                                                                                                                       |
+| 8           | TRACE        | Performs a message loop back test along with the path to the target resource.                                                                                                     |
+
+### **Request URI**
+
+The Request-URI is a **Uniform Resource Identifier** and identifies the resource upon which to apply the request. Following are the most commonly used forms to specify an URI:
+
+```markdown
+Request-URI = "*" | absoluteURI | abs_path | authority
+```
+
+| **_Method_**  | **_Description_**                                                                                                                                                                                                                                |
+|---------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| asterisk "*"  | The asterisk star is used to show that the request does not apply to a particular resource, but it will apply to the server itself. It is allowed only when the method used does not necessarily apply to a resource. Example: OPTIONS * HTTP/1.1|
+| absoluteURI   | The absoluteURI form is used only when the request is being made to a proxy. The requested proxy is used to forward the request and return the response. Example : GET http://swayaan.com/ HTTP/1.1                                              |
+| absolute path | The absolute path can't be empty. If in the original URI, none is present, it must be given as "/"                                                                                                                                               |
+| authority     | The authority form is only used by the CONNECT method.                                                                                                                                                                                           |
+
+### **Request Header Fields**
+
+This request-header field allows the client to pass additional information to the server, including the request and the client.The request header fields function as request modifiers, with semantics similar to the parameters of a method invocation in a programming language.
+
+Syntax
+
+```markdown
+request-header = Accept                     
+                      | Accept-Charset            
+                      | Accept-Encoding            
+                      | Accept-Language            
+                      | Authorization              
+                      | Expect                    
+                      | From                       
+                      | Host                      
+                      | If-Match                   
+                      | If-Modified-Since        
+                      | If-None-Match             
+                      | If-Range                
+                      | If-Unmodified-Since       
+                      | Max-Forwards              
+                      | Proxy-Authorization       
+                      | Range                     
+                      | Referer                   
+                      | TE                        
+                      | User-Agent  
+```
+
+### **Examples**
+
+Now let's put it all together to form an HTTP request to fetch hello.htm page from the web
+
+```markdown
+GET /hello.htm HTTP/1.1
+User-Agent: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)
+Host: www.tutorialspoint.com
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: Keep-Alive
+```
