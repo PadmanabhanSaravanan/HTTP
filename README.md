@@ -9,7 +9,7 @@
 3. [**Working of web**](#working-of-web)<!-- style="font-size:20px" -->
 4. [**HTTP Messages**](#http-messages)<!-- style="font-size:20px" -->
 5. [**HTTP Requests**](#http-request)<!-- style="font-size:20px" -->
-6. [**HTTP Responses**](#)<!-- style="font-size:20px" -->
+6. [**HTTP Responses**](#http-responses)<!-- style="font-size:20px" -->
 7. [**HTTP Methods**](#)<!-- style="font-size:20px" -->
 8. [**HTTP Status Codes**](#)<!-- style="font-size:20px" -->
 9. [**HTTP Header Fields**](#)<!-- style="font-size:20px" -->
@@ -430,4 +430,108 @@ Host: www.tutorialspoint.com
 Accept-Language: en-us
 Accept-Encoding: gzip, deflate
 Connection: Keep-Alive
+```
+
+## **HTTP Responses**
+
+After receiving and interpreting a request message, a server responds with an HTTP response message
+
+> * A Status-line
+> * Zero or more header (General,Response,Entity) fields followed by CRLF
+> * An empty line (i.e., a line with nothing preceding the CRLF) indicating the end of the header fields
+> * Optionally a message-body
+
+An HTTP response contains the following things:
+
+* [**Status Line**](#message-status-line)
+* **Response Header Fields or a series of HTTP headers**
+
+### **Message Status-Line**
+
+A Status-Line consists of the protocol version followed by a numeric status code and its associated textual phrase. The elements are separated by space SP characters.
+
+```markdown
+Status-Line = HTTP-Version SP Status-Code SP Reason-Phrase CRLF
+```
+
+**HTTP Version**
+
+A server supporting HTTP version 1.1 will return the following version information:
+
+```markdown
+HTTP-Version = HTTP/1.1
+```
+
+**Status Code**
+
+The Status-Code element is a 3-digit integer where first digit of the Status-Code defines the class of response and the last two digits do not have any categorization role. There are 5 values for the first digit:
+
+| **_Sl No_** | **_Code_**         | **_Description_**                                                        |
+|-------------|--------------------|--------------------------------------------------------------------------|
+| 1           | 1xx: Informational | It means the request was received and the process is continuing.         |
+| 2           | 2xx: Success       | It means the action was successfully received, understood, and accepted. |
+| 3           | 3xx: Redirection   | It means further action must be taken in order to complete the request.  |
+| 4           | 4xx: Client Error  | It means the request contains incorrect syntax or cannot be fulfilled.   |
+| 5           | 5xx: Server Error  | It means the server failed to fulfill an apparently valid request.       |
+
+### **Response Header Fields**
+
+The HTTP Headers for the response of the server contain the information that a client can use to find out more about the response, and about the server that sent it. This information is used to assist the client with displaying the response to a user, with storing the response for the use of future, and with making further requests to the server now or in the future.
+
+```markdown
+response-header = Accept-Ranges            
+                  | Age                     
+                  | ETag                     
+                  | Location                
+                  | Proxy-Authenticate       
+                  | Retry-After              
+                  | Server             
+                  | Vary                    
+                  | WWW-Authenticate     
+```
+
+### **Examples**
+
+Now let's put it all together to form an HTTP response for a request to fetch the hello.htm page from the web server
+
+```markdown
+HTTP/1.1 200 OK
+Date: Mon, 27 Jul 2009 12:28:53 GMT
+Server: Apache/2.2.14 (Win32)
+Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT
+Content-Length: 88
+Content-Type: text/html
+Connection: Closed
+```
+
+```htm
+<html>
+<body>
+<h1>Hello, World!</h1>
+</body>
+</html>
+```
+
+The following example shows an HTTP response message displaying error condition when the web server could not find the requested page
+
+```markdown
+HTTP/1.1 404 Not Found
+Date: Sun, 18 Oct 2012 10:36:20 GMT
+Server: Apache/2.2.14 (Win32)
+Content-Length: 230
+Connection: Closed
+Content-Type: text/html; charset=iso-8859-1
+```
+
+```htm
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+<head>
+   <title>404 Not Found</title>
+</head>
+<body>
+   <h1>Not Found</h1>
+   <p>The requested URL /t.html was not found on this server.</p>
+</body>
+</html>
 ```
