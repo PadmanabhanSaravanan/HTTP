@@ -349,7 +349,7 @@ Request  = Request-Line
 * [**Request Method**](#request-method)
 * [**Request-URI**](#request-uri)
 * [**Request Header Fields**](#request-header-fields)
-* [**Examples**](#examples)
+* [**Examples**](#http-request-examples)
 
 ### **Request Line**
 
@@ -419,7 +419,7 @@ request-header = Accept
                       | User-Agent  
 ```
 
-### **Examples**
+### **HTTP Request Examples**
 
 Now let's put it all together to form an HTTP request to fetch hello.htm page from the web
 
@@ -444,7 +444,8 @@ After receiving and interpreting a request message, a server responds with an HT
 An HTTP response contains the following things:
 
 * [**Status Line**](#message-status-line)
-* **Response Header Fields or a series of HTTP headers**
+* [**Response Header Fields or a series of HTTP headers**](#response-header-fields)
+* [**Examples**](#http-response-examples)
 
 ### **Message Status-Line**
 
@@ -490,7 +491,7 @@ response-header = Accept-Ranges
                   | WWW-Authenticate     
 ```
 
-### **Examples**
+### **HTTP Response Examples**
 
 Now let's put it all together to form an HTTP response for a request to fetch the hello.htm page from the web server
 
