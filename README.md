@@ -13,7 +13,7 @@
 7. [**HTTP Methods**](#http-methods)<!-- style="font-size:20px" -->
 8. [**HTTP Status Codes**](#http-status-codes)<!-- style="font-size:20px" -->
 9. [**HTTP Header Fields**](#http-header-fields)<!-- style="font-size:20px" -->
-10. [**HTTP Cookies**](#)<!-- style="font-size:20px" -->
+10. [**HTTP Cookies**](#http-cookies)<!-- style="font-size:20px" -->
 11. [**HTTP Chaching**](#)<!-- style="font-size:20px" -->
 12. [**HTTP URL Encoding**](#)<!-- style="font-size:20px" -->
 13. [**HTTP Security**](#)<!-- style="font-size:20px" -->
@@ -1620,4 +1620,38 @@ Following is an example:
 
 ```markdown
 Last-Modified: Tue, 15 Nov 1994 12:45:26 GMT
+```
+
+## **HTTP Cookies**
+
+A cookie is a piece of data that is issued by a server in an HTTP response and stored for future use by the HTTP client. The client then re-supplies the cookie value in subsequent requests to the same server. This mechanism allows the server to store user preferences and identity individual users.
+
+* [**Setting Cookies**](#setting-cookies)
+* [**Retrieving Cookies**](#retrieving-cookies)
+
+### **Setting Cookies**
+
+Servers supply cookies by populating the set-cookie response header with the following details:
+
+| **_Name_** | **_Name of the cookie_**                                                                                                                                                                                                              |
+|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Value      | Textual value to be held by the cookie                                                                                                                                                                                                |
+| Expires    | Date/time when the cookie should be discarded by the browser. If this field is empty the cookie expires at the end of the current browser session. This field can also be used to delete a cookie by setting a date/time in the past. |
+| Path       | Path below which the cookie should be supplied by the browser.                                                                                                                                                                        |
+| Domain     | Web site domain to which this cookie applies. This will default to the current domain and attempts to set cookies on other domains are subject to the privacy controls built into the browser.                                        |
+
+These fields allow a server to create, modify, delete, and control which parts of a web site will receive the cookie.
+
+### **Retrieving Cookies**
+
+Whenever a client is about to make an HTTP request it consults its local cookie store to see if any unexpired cookies match the path and domain it is about to use. Any matching cookie values are submitted back to the server using the cookie header.
+
+Example:
+
+```markdown
+The following cookies were sent to the page:
+
+Name  _ga
+
+Value  GA1.2.1603568968.1681366048
 ```
