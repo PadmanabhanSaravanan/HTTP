@@ -17,6 +17,7 @@
 11. [**HTTP Chaching**](#http-chaching)<!-- style="font-size:20px" -->
 12. [**HTTP URL Encoding**](#http-url-encoding)<!-- style="font-size:20px" -->
 13. [**HTTP Security**](#http-security)<!-- style="font-size:20px" -->
+14. [**HTTP Examples**](#http-examples)<!-- style="font-size:20px" -->
 
 
 ## Introduction to HTTP
@@ -1855,3 +1856,84 @@ HTTP proxies are men-in-the-middle, and represent an opportunity for man-in-the-
 Proxy operators should protect the systems on which proxies run, as they would protect any system that contains or transports sensitive information.
 
 Caching proxies provide additional potential vulnerabilities, since the contents of the cache represent an attractive target for malicious exploitation. Therefore, cache contents should be protected as sensitive information.
+
+## **HTTP Examples**
+
+Example 1
+
+HTTP request to fetch hello.htm page from the web server
+
+Client request
+
+```markdown
+GET /hello.htm HTTP/1.1
+User-Agent: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)
+Host: www.tutorialspoint.com
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: Keep-Alive
+```
+
+Server response
+
+```markdown
+HTTP/1.1 200 OK
+Date: Mon, 27 Jul 2009 12:28:53 GMT
+Server: Apache/2.2.14 (Win32)
+Last-Modified: Wed, 22 Jul 2009 19:15:56 GMT
+Content-Length: 88
+Content-Type: text/html
+Connection: Closed
+```
+
+```htm
+<html>
+   <body>
+
+   <h1>Hello, World!</h1>
+
+   </body>
+</html>
+```
+
+Example 2
+
+HTTP request to fetch t.html page that does not exist on the web server.
+
+Client request
+
+```markdown
+GET /t.html HTTP/1.1
+User-Agent: Mozilla/4.0 (compatible; MSIE5.01; Windows NT)
+Host: www.tutorialspoint.com
+Accept-Language: en-us
+Accept-Encoding: gzip, deflate
+Connection: Keep-Alive
+```
+
+Server response
+
+```markdown
+HTTP/1.1 404 Not Found
+Date: Sun, 18 Oct 2012 10:36:20 GMT
+Server: Apache/2.2.14 (Win32)
+Content-Length: 230
+Content-Type: text/html; charset=iso-8859-1
+Connection: Closed
+```
+
+```htm
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+<html>
+
+<head>
+   <title>404 Not Found</title>
+</head>
+
+<body>
+   <h1>Not Found</h1>
+   <p>The requested URL /t.html was not found on this server.</p>
+</body>
+
+</html>
+```
