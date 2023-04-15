@@ -14,7 +14,7 @@
 8. [**HTTP Status Codes**](#http-status-codes)<!-- style="font-size:20px" -->
 9. [**HTTP Header Fields**](#http-header-fields)<!-- style="font-size:20px" -->
 10. [**HTTP Cookies**](#http-cookies)<!-- style="font-size:20px" -->
-11. [**HTTP Caching**](#http-chaching)<!-- style="font-size:20px" -->
+11. [**HTTP Caching**](#http-caching)<!-- style="font-size:20px" -->
 12. [**HTTP URL Encoding**](#http-url-encoding)<!-- style="font-size:20px" -->
 13. [**HTTP Security**](#http-security)<!-- style="font-size:20px" -->
 14. [**HTTP Examples**](#http-examples)<!-- style="font-size:20px" -->
