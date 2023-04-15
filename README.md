@@ -14,7 +14,7 @@
 8. [**HTTP Status Codes**](#http-status-codes)<!-- style="font-size:20px" -->
 9. [**HTTP Header Fields**](#http-header-fields)<!-- style="font-size:20px" -->
 10. [**HTTP Cookies**](#http-cookies)<!-- style="font-size:20px" -->
-11. [**HTTP Chaching**](#http-chaching)<!-- style="font-size:20px" -->
+11. [**HTTP Caching**](#http-chaching)<!-- style="font-size:20px" -->
 12. [**HTTP URL Encoding**](#http-url-encoding)<!-- style="font-size:20px" -->
 13. [**HTTP Security**](#http-security)<!-- style="font-size:20px" -->
 14. [**HTTP Examples**](#http-examples)<!-- style="font-size:20px" -->
@@ -1657,7 +1657,7 @@ Name  _ga
 Value  GA1.2.1603568968.1681366048
 ```
 
-## **HTTP Chaching**
+## **HTTP Caching**
 
 HTTP is typically used for distributed information systems, where performance can be improved by the use of response caches. The HTTP/1.1 protocol includes a number of elements intended to make caching work.
 
