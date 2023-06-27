@@ -34,6 +34,9 @@
 * The primary function of HTTP is to establish a connection with the server and send HTML pages back to the user's browser.
 * HTTP is an application protocol that runs on top of the TCP/IP suite of protocols, which forms the foundation of the internet.
 
+<br>
+
+**TCP/IP** - Transmission Control Protocol/Internet Protocol
 ![image http](images/http.png)
 
 ### **Features of HTTP**
@@ -1696,6 +1699,19 @@ The following cache response directives can be used by the server in its HTTP re
 | proxy-revalidate               | The proxy-revalidate directive has the same meaning as the must- revalidate directive, except that it does not apply to non-shared user agent caches.                                               |
 | max-age = seconds              | Indicates that the client is willing to accept a response whose age is not greater than the specified time in seconds.                                                                              |
 | s-maxage = seconds       | The maximum age specified by this directive overrides the maximum age specified by either the max-age directive or the Expires header. The s-maxage directive is always ignored by a private cache. |
+
+
+## HTTP Cache vs HTTP Cookies
+
+| Parameters          | Http Cache                                                                                                             | Http Cookies                                                                                                                                                                                 |
+|---------------------|------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Basics              | A system uses caches for storing content from a website and applications. They make things more accessible for a user. | A website or application uses cookies to store the user’s activities and identify their trail of preferences.                                                                                |
+| Things Stored       | Cache stores Javascript, CSS, HTML pages, media (images and videos), etc.                                              | Cookies store temporary data for tracking, such as browsing sessions, history of using websites and apps, etc.                                                                               |
+| Capacity            | Caches are comparatively less memory efficient. They occupy a lot of space on any device.                              | Cookies are far more efficient with the device’s memory. They take up a very lesser amount of memory.                                                                                        |
+| Location of Storage | The cache stores the website content only on a user browser.                                                           | Cookies store their content on both- a server as well as a browser.                                                                                                                          |
+| Expiration          | One needs to delete the cache manually. It does not expire automatically.                                              | The cookies have a very limited life span that depends entirely on their creators. The cookies, thus, expire after a fixed amount of time.                                                   |
+| Sent with a Request | Sending a response in the form of cache does not come as a request to a user.                                          | Cookies pop up as a request in front of the users as a form of authorization/permission from them. In other words, it only sends a response to the servers with the end user’s confirmation. |
+| Types               | Proxy Cache and Browser Cache.                                                                                         | Persistent Cookies and Transient Cookies.                                                                                                                                                    |
 
 ## **HTTP URL Encoding**
 
